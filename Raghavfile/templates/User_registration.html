@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form | CodingLab</title>
+    <style>
+      /* Body Background */
+      body {
+          background-image: url('967694.jpg'); /* Adjust the URL to your background image */
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          margin: 0;
+        }
+
+        /* Container and Card Styling */
+        .oContainer {
+          padding: 0;
+          max-width: 200px; /* Reduce the maximum width */
+          margin: 0 auto;
+          max-height: 300px; /* Reduce the maximum height */
+           /* Add overflow to enable scrolling if content exceeds the container */
+        }
+
+        .card {
+          background-color: rgba(255, 255, 255, 0.8);
+          border: none; /* Remove border */
+          border-radius: 25px;
+          box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Typing Animation */
+        .typing-animation {
+          overflow: hidden;
+          white-space: nowrap;
+          width: 0;
+          animation: typing 5s steps(50, end);
+        }
+
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+        }
+
+        /* Form Input Styling */
+        .form-outline {
+          border-radius: 25px;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+          background-color: #ff7c5c; /* Custom primary button color */
+          border-color: #ff7c5c; /* Custom primary button border color */
+        }
+
+        .btn-primary:hover {
+          background-color: #ff523f; /* Custom primary button hover color */
+          border-color: #ff523f; /* Custom primary button hover border color */
+        }
+
+        /* Form Label Styling */
+        .form-label {
+          color: #333; /* Custom form label color */
+        }
+
+        /* Checkbox Styling */
+        .form-check-input[type="checkbox"] {
+          margin-top: 0.25rem;
+        }
+
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <section class="vh-100 " >
+      <div class="oContainer container h-100 my-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-1 col-xl-11">
+            <div class="card text-black" style="border-radius: 25px">
+              <div class="card-body p-md-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                      Sign up
+                    </p>
+
+                    <form class="mx-1 mx-md-2" id="signupForm" action = '/usersignup' method="post">
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="fullName">Your Name</label>
+                          <input
+                            type="text"
+                            id="fullName"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="email">Your Email</label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="useremail"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="phoneNumber">Phone</label>
+                          <input
+                            type="tel"
+                            id="phoneNumber"
+                            class="form-control"
+                            pattern="[0-9]{10}"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-calendar   fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="age">Age</label>
+                          <input
+                            type="number"
+                            id="age"
+                            class="form-control"
+                            min="22"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-id-card fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="panCard">Pan Card No</label>
+                          <input
+                            type="text"
+                            id="panCard"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="password">Password</label>
+                          <input
+                            type="password"
+                            id="password"
+                            name = "userpassword"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="confirmPassword">Repeat your password</label>
+                          <input
+                            type="password"
+                            id="confirmPassword"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-check d-flex justify-content-center mb-5">
+                        <input
+                          class="form-check-input me-2"
+                          type="checkbox"
+                          value=""
+                          id="agreeTerms"
+                          required
+                        />
+                        <label class="form-check-label" for="agreeTerms">
+                          I agree all statements in <a href="#!">Terms of service</a>
+                        </label>
+                      </div>
+
+                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                          Register
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                    <div class="carousel">
+                      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block w-100" src="static/audi.png" alt="First slide" />
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="static/audi.png" alt="Second slide" />
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="static/audi.png" alt="Third slide" />
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("signupForm");
+
+        const fields = {
+          fullName: {
+            id: "fullName",
+            message: "Please enter your name",
+            validate: function () {
+              const value = document.getElementById(this.id).value;
+              return value.trim() !== "";
+            },
+          },
+          email: {
+            id: "email",
+            message: "Please enter a valid email address",
+            validate: function () {
+              const value = document.getElementById(this.id).value;
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return emailRegex.test(value);
+            },
+          },
+          phoneNumber: {
+            id: "phoneNumber",
+            message: "Please enter a valid 10-digit phone number",
+            validate: function () {
+              const value = document.getElementById(this.id).value;
+              const phoneRegex = /^\d{10}$/;
+              return phoneRegex.test(value);
+            },
+          },
+          age: {
+            id: "age",
+            message: "You must be at least 22 years old to sign up",
+            validate: function () {
+              const value = document.getElementById(this.id).value;
+              return parseInt(value) >= 22;
+            },
+          },
+          panCard: {
+            id: "panCard",
+            message: "Please enter a valid PAN card number",
+            validate: function () {
+              const value = document.getElementById(this.id).value;
+              const panRegex = /[A-Z]{5}[0-9]{4}[A-Z]{1}/;
+              return panRegex.test(value);
+            },
+          },
+          password: {
+            id: "password",
+            message: "Password must contain at least 8 characters including at least one uppercase letter, one lowercase letter, one digit, and one special character",
+            validate: function () {
+              const value = document.getElementById(this.id).value;
+              const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+              return passwordRegex.test(value);
+            },
+          },
+          confirmPassword: {
+            id: "confirmPassword",
+            message: "Passwords do not match",
+            validate: function () {
+              const password = document.getElementById("password").value;
+              const confirmPassword = document.getElementById(this.id).value;
+              return password === confirmPassword;
+            },
+          },
+          agreeTerms: {
+            id: "agreeTerms",
+            message: "Please agree to the Terms of Service",
+            validate: function () {
+              return document.getElementById(this.id).checked;
+            },
+          },
+        };
+
+        // Add blur event listener to each field
+        Object.values(fields).forEach((field) => {
+          const element = document.getElementById(field.id);
+          element.addEventListener("blur", function () {
+            const isValid = field.validate();
+            if (!isValid) {
+              showError(field.id, field.message);
+            } else {
+              hideError(field.id);
+            }
+          });
+        });
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          validateForm();
+        });
+
+        function validateForm() {
+          let isValid = true;
+          Object.values(fields).forEach((field) => {
+            const element = document.getElementById(field.id);
+            const isFieldValid = field.validate();
+            if (!isFieldValid) {
+              isValid = false;
+              showError(field.id, field.message);
+            } else {
+              hideError(field.id);
+            }
+          });
+
+          if (isValid) {
+            alert("Form submitted successfully!");
+            form.submit();
+          }
+        }
+
+        function showError(fieldId, message) {
+          const errorId = fieldId + "-error";
+          let errorElement = document.getElementById(errorId);
+          if (!errorElement) {
+            errorElement = document.createElement("div");
+            errorElement.id = errorId;
+            errorElement.classList.add("error-message");
+            errorElement.style.color =  "darkred" ;
+            const field = document.getElementById(fieldId);
+            field.parentNode.insertBefore(errorElement, field.nextSibling);
+          }
+          errorElement.textContent = message;
+        }
+
+        function hideError(fieldId) {
+          const errorId = fieldId + "-error";
+          const errorElement = document.getElementById(errorId);
+          if (errorElement) {
+            errorElement.remove();
+          }
+        }
+      });
+
+    </script>
+  </body>
+</html>

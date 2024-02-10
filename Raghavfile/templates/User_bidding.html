@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <style>
+     h1{
+     font-family: 'Playfair Display', serif;
+     color: darkblue;
+     text-decoration: underline;
+     text-decoration-color: yellowgreen;
+       text-align: center;
+   } 
+      a{
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        color: darkblue;
+      }
+      html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+.container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+table {
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+thead {
+  th {
+    background-color: #55608f;
+  }
+}
+tr:hover{
+    background-color: grey
+  }
+tbody {
+  tr {
+      background-color: rgba(255,255,255,0.3);
+  }
+  td {
+    position: relative;
+    &:hover {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -9999px;
+        bottom: -9999px;
+        background-color: rgba(255,255,255,0.2);
+        z-index: -1;
+      }
+    }
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>User Dashboard</h1>
+      <table>
+        <thead>
+          <tr>
+            <td>User Name</td>
+            <td>Item Name</td>
+            <td>Amount Bid</td>
+          </tr>
+        </thead>
+    {% set l = [] %}
+      <tbody>
+      {% for i in rows %}
+      <tr>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+         {% set l = l.append(i[3]|int)%}
+        <!-- {% if i[6] == 'Unpaid'%}
+        {% set l = l.append(i[5]|int)%}
+        {%endif%} -->
+      </tr>
+      {%endfor%}
+      </tbody>
+    </table>
+    <!-- {% set points = [0] -%}
+    {% for i in l -%}
+       {% if points.append(points.pop()+ i|int) -%}{% endif %}
+<!--     {{s}} -->
+    <!-- {% endfor %} -->
+    <h1> Maximum bidder price is by {{ rows[0][0] }} which is {{ l | map('int') | max }}</h1>
+     <!-- <h1>Kindly pay the above price in the 'View Cart' Section</h1> -->
+    </div> -->
+  </body>
+</html>

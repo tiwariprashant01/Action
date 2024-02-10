@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>How To Create Responsive Navigation Bar With Dropdown Menus</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+      }
+
+
+
+      body {
+        background-color: #f5f5f5;
+        font-family: arial;
+      }
+      header {
+        background: linear-gradient(90deg, rgba(44,111,124,1) 1%, rgba(48,41,164,1) 29%, rgba(41,39,150,1) 42%, rgba(50,50,153,1) 58%, rgba(45,45,158,1) 63%, rgba(43,43,144,1) 66%, rgba(49,49,140,1) 96%);
+        width: 100%;
+        float: left;
+        box-shadow: 0px 0px 15px #777;
+        height: 100px;
+      }
+      .wrapper {
+        max-width: 1200px;
+        padding: 0px 20px;
+        margin: auto;
+      }
+      .logo {
+        float: left;
+        margin: 20px 0px ;
+        max-width: 200px;
+
+      }
+      .logo img{
+        max-width: 100%;
+      max-height: 50%;
+
+      }
+
+      /*-- Navbar CSS --*/
+      .nav-menus {
+        float: right;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+      }
+      .nav-menus li {
+        list-style: none;
+        position: relative;
+        padding: 30px 0px;
+      }
+      .nav-menus a {
+        color: #fff;
+        position: relative;
+        margin-right: 15px;
+        font-size: 17px;
+        text-decoration: none;
+        padding: 15px 12px;
+        z-index: 1;
+      }
+      .nav-menus li:hover {
+        color: #fff;
+      }
+      .nav-menus a:after {
+        content: "";
+        width: 100%;
+        height: 0px;
+        background-color: cornflowerblue;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border-radius: 4px;
+        transition: 0.5s;
+        z-index: -1;
+      }
+      .nav-menus li:hover > a:after{
+        height: 100%;
+      }
+      .nav-menus i{
+        margin-right: 8px;
+        font-size: 16px;
+      }
+      .toggle-btn{
+        float: right;
+        height: 90px;
+        line-height: 90px;
+        color: #fff;
+        font-size: 26px;
+        display: none;
+        cursor: pointer;
+      }
+      .nav-menus.active{
+        display: block;
+      }
+
+      /*-- Sub Menus CSS--*/
+      .sub-menus ul {
+        position: absolute;
+        top: 80px;
+        background-color: #fff;
+        padding: 5px 0px;
+        min-width: 150px;
+        box-shadow: 0px 0px 8px #636363;
+        border-radius: 4px;
+        display: none;
+      }
+      .sub-menus:hover ul {
+        display: block;
+      }
+      .sub-menus ul li {
+        padding: 5px 0px;
+      }
+      .sub-menus ul li a {
+        padding: 8px 10px;
+        display: block;
+        color: #5a30a5;
+      }
+      .sub-menus ul li:hover a {
+        color: #fff;
+      }
+      .sub-menus ul::before {
+        content: "";
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #fff;
+        position: absolute;
+        top: -9px;
+      }
+
+      /*-- Responsive Menus Bar CSS--*/
+      @media (max-width:1020px) {
+      .toggle-btn{
+        display: block;
+      }
+      .nav-menus {
+        position: absolute;
+        width: 100%;
+        background: linear-gradient(90deg, rgba(44,111,124,1) 1%, rgba(48,41,164,1) 29%, rgba(41,39,150,1) 42%, rgba(50,50,153,1) 58%, rgba(45,45,158,1) 63%, rgba(43,43,144,1) 66%, rgba(49,49,140,1) 96%);
+        top: 100px;
+        right: 0;
+        display: none;
+        padding: 0px 15px;
+        box-sizing: border-box;
+      }
+      .nav-menus::before{
+        content: "";
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #383772;
+        position: absolute;
+        top: -10px;
+        right: 10px;
+      }
+      .sub-menus ul {
+        position: static;
+      }
+      .sub-menus ul::before {
+        display: none;
+      }
+      .nav-menus li {
+        padding: 0px;
+      }
+      .nav-menus li a {
+        display: block;
+        margin: 15px 0px;
+      }
+      }
+
+
+
+
+
+
+
+      </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        .home-testimonial{background-color: #231834;height: 380px}.home-testimonial-bottom{background-color: #f8f8f8;transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top: 20px;margin-bottom: 0px;position: relative;height: 130px;top: 190px}.home-testimonial h3{color: var(--orange);font-size: 14px;font-weight: 500;text-transform: uppercase}.home-testimonial h2{color: white;font-size: 28px;font-weight: 700}.testimonial-inner{position: relative;top: -174px}.testimonial-pos{position: relative;top: 24px}.testimonial-inner .tour-desc{border-radius: 5px;padding: 40px}.color-grey-3{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.testimonial-inner img.tm-people{width: 60px;height: 60px;-webkit-border-radius: 50%;border-radius: 50%;-o-object-fit: cover;object-fit: cover;max-width: none}.link-name{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.link-position{font-family: "Montserrat", Sans-serif;font-size: 12px;color: #6c83a2}
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".toggle-btn").click(function () {
+                $(this).toggleClass("fa-times");
+                $(".nav-menus").toggleClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <a href="#" class="logo"><img src="c1-removebg-preview.png" alt=""></a>
+    <i class="toggle-btn fas fa-bars"></i>
+    <nav class="nav-menus">
+        <li><a href="/user_bidding_add"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#"><i class="fas fa-align-left"></i> About</a></li>
+        <li class="sub-menus">
+            <a href="#"><i class="fas fa-list-ul"></i> Category</a>
+            <ul>
+                <li><a href="#"><i class="fab fa-blogger-b"></i> Cars</a></li>
+                <li><a href="#"><i class="fab fa-wordpress-simple"></i> Property</a></li>
+            </ul>
+        </li>
+        <li class="sub-menus">
+            <a href="#"><i class="fas fa-list-ul"></i> History</a>
+            <ul>
+                <li><a href="#"><i class="fab fa-blogger-b"></i> On-going Auction</a></li>
+                <li><a href="#"><i class="fab fa-wordpress-simple"></i> Previous Auction</a></li>
+                <li><a href="#"><i class="fab fa-html5"></i> Next Auction</a></li>
+            </ul>
+        </li>
+        <li><a href="#"><i class="fas fa-users"></i> Profile</a></li>
+        <li><a href="#"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+    </nav>
+</header>
+<div style="height:300px">
+
+</div>
+
+
+
+<section class="home-testimonial">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center testimonial-pos">
+            <div class="col-md-12 pt-4 d-flex justify-content-center">
+                <h3>Testimonials</h3>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+                <h2>Explore the Customers experience</h2>
+            </div>
+        </div>
+        <section class="home-testimonial-bottom">
+            <div class="container testimonial-inner">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;At this School, our mission is to balance a rigorous comprehensive college preparatory curriculum with healthy social and emotional development.&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2"><img class="tm-people" src="https://images.pexels.com/photos/6625914/pexels-photo-6625914.jpeg" alt=""></div>
+                                <div class="link-name d-flex justify-content-center">Balbir Kaur</div>
+                                <div class="link-position d-flex justify-content-center">Student</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;At this School, our mission is to balance a rigorous comprehensive college preparatory curriculum with healthy social and emotional development.&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2"><img class="tm-people" src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""></div>
+                                <div class="link-name d-flex justify-content-center">Balbir Kaur</div>
+                                <div class="link-position d-flex justify-content-center">Student</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;At this School, our mission is to balance a rigorous comprehensive college preparatory curriculum with healthy social and emotional development.&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2"><img class="tm-people" src="https://images.pexels.com/photos/4946604/pexels-photo-4946604.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""></div>
+                                <div class="link-name d-flex justify-content-center">Balbir Kaur</div>
+                                <div class="link-position d-flex justify-content-center">Student</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+</section>
+</body>
+</html>
